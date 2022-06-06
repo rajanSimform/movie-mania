@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a class="app-heading" routerLink="/">Movie-Mania</a>
+  <div class="nav-links">
+    <a mat-flat-button color="primary" routerLink="/dashboard">Dashboard</a>
+    <a mat-flat-button color="primary" routerLink="/">About Us</a>
+  </div>
+  <span class="spacer"></span>
+  <div *ngIf="!authUser">
+    <button mat-button (click)="openSignupDialog()">Sign Up</button>
+    <button mat-button (click)="openLoginDialog()">Login</button>
+  </div>
+  <div class="logged-user-field" *ngIf="authUser">
+    <p>
+      {{authUser.email}}
+      <button mat-icon-button class="favorite-icon">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+    </p>
+  </div>
+</mat-toolbar>
